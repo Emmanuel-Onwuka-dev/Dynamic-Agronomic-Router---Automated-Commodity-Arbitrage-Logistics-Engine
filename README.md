@@ -68,6 +68,12 @@ A separate **Error Handler** sub-workflow catches any failure in the main router
 
 ---
 
+## Tools & Stack
+
+n8n · Google Sheets · OpenAI (GPT) · Notion API · Slack API · Commodity price APIs · Logistics/freight data API
+
+---
+
 ## Workflow structure
 
 \```
