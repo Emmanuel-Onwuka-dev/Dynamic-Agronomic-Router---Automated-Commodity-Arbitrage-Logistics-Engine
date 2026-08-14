@@ -76,37 +76,37 @@ n8n · Google Sheets · OpenAI (GPT) · Notion API · Slack API · Commodity pri
 
 ## Workflow structure
 
-\```
-Dynamic Agronomic Router (main, runs every 8 hours)
-├─ DATA COLLECTION
-│  ├─ Price feed source 1 (API)
-│  ├─ Price feed source 2 (API)
-│  ├─ Price feed source 3 (API)
-│  ├─ Price feed source 4 (API)
-│  └─ Freight/logistics data source
-├─ Merge (all price sources)
-├─ Sanitize data (clean & standardize schema/units)
-├─ DATA PROCESSING
-│  ├─ Append Commodity List
-│  └─ Append Route/Logistics data
-├─ Merge (commodities + logistics)
-├─ DECISION ENGINE
-│  ├─ Arbitrage Calculator (spread, logistics cost, net profit, margin)
-│  └─ Router: Profitable vs Non-Profitable
-├─ Non-profitable → Notify Admin (Slack: scan summary, no action needed)
-└─ Profitable →
-   ├─ AI AUTOMATION (OpenAI Chat Model)
-   │  └─ Generate manifest, route summary, Slack copy, logistics report
-   └─ EXECUTION & REPORTING
-      ├─ Loop Over Items (each approved route)
-      ├─ Update Master Ledger (Notion)
-      └─ Notify Logistics (Slack: #logistics-alerts)
+**Dynamic Agronomic Router (main, runs every 8 hours)**
 
-Dynamic Agronomic Router - Error Handler (sub-workflow)
-├─ Catch Workflow Errors
-├─ Extract Error Details
-└─ Alert Admin For Errors (Slack: #admin-alerts)
-\```
+- **DATA COLLECTION**
+  - Price feed source 1 (API)
+  - Price feed source 2 (API)
+  - Price feed source 3 (API)
+  - Price feed source 4 (API)
+  - Freight/logistics data source
+- Merge (all price sources)
+- Sanitize data (clean & standardize schema/units)
+- **DATA PROCESSING**
+  - Append Commodity List
+  - Append Route/Logistics data
+- Merge (commodities + logistics)
+- **DECISION ENGINE**
+  - Arbitrage Calculator (spread, logistics cost, net profit, margin)
+  - Router: Profitable vs Non-Profitable
+- Non-profitable → Notify Admin (Slack: scan summary, no action needed)
+- Profitable →
+  - **AI AUTOMATION** (OpenAI Chat Model)
+    - Generate manifest, route summary, Slack copy, logistics report
+  - **EXECUTION & REPORTING**
+    - Loop Over Items (each approved route)
+    - Update Master Ledger (Notion)
+    - Notify Logistics (Slack: #logistics-alerts)
+
+**Dynamic Agronomic Router - Error Handler (sub-workflow)**
+
+- Catch Workflow Errors
+- Extract Error Details
+- Alert Admin For Errors (Slack: #admin-alerts)
 
 ---
 
